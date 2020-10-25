@@ -1,10 +1,10 @@
 <template>
   <div>
-  <b-container>
-    <b-row>
-      <b-col class="col-md-6 border p-0">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 position-relative">
-          <div class="col-md-12 border solid red p-4 d-flex flex-column align-items-center position-static">
+  <b-container class="h-100 ">
+    <b-row class="h-100 justify-content-center align-items-center">
+      <b-col class="col-md-6 p-0">
+        <div class="row no-gutters overflow-hidden flex-md-row mb-4 position-relative">
+          <div class="col-md-12 p-4 d-flex flex-column align-items-center position-static">
             <strong class="h3 d-inline-block mb-2 text-primary">{{ currentTemp.mediumTemp }}°C</strong>
             <h6>{{ currentTemp.description}}</h6>
             <img v-bind:src="currentTemp.actual_icon" height="100" width="100" alt="">
@@ -14,11 +14,11 @@
 
           <div class="w-100"></div>
 
-          <div class="col-md-12 border solid red d-flex align-items-center p-4 flex-md-row">
+          <div class="col-md-12 d-flex align-items-center p-4 flex-md-row">
             <div class="col-md-4">{{ convertToDay(nextDay1.date) }}</div>
             <div class="col-md-4 d-flex flex-start">
             <img v-bind:src="nextDay1.actual_icon" height="50" width="50" alt="">
-              <h6>{{ nextDay1.description }}</h6>
+              <h6 id="descr" class="ml-2 mt-3">{{ nextDay1.description }}</h6>
             </div>
             <div class="col-md-4">{{ nextDay1.mediumTemp }}°C</div>
 
@@ -26,22 +26,22 @@
 
           <div class="w-100"></div>
 
-          <div class="col-md-12 border solid red d-flex align-items-center p-4">
+          <div class="col-md-12 d-flex align-items-center p-4">
             <div class="col-md-4">{{ convertToDay(nextDay2.date) }}</div>
             <div class="col-md-4 d-flex flex-start">
               <img v-bind:src="nextDay2.actual_icon" height="50" width="50" alt="">
-              <h6>{{ nextDay2.description }}</h6>
+              <h6 id="descr" class="ml-2 mt-3">{{ nextDay2.description }}</h6>
             </div>
             <div class="col-md-4">{{ nextDay2.mediumTemp }}°C</div>
           </div>
 
           <div class="w-100"></div>
 
-          <div class="col-md-12 border solid red d-flex align-items-center p-4">
+          <div class="col-md-12 d-flex align-items-center p-4">
             <div class="col-md-4">{{ convertToDay(nextDay3.date) }}</div>
             <div class="col-md-4 d-flex flex-start">
               <img v-bind:src="nextDay3.actual_icon" height="50" width="50" alt="">
-              <h6>{{ nextDay3.description }}</h6>
+              <h6 id="descr" class="ml-2 mt-3">{{ nextDay3.description }}</h6>
             </div>
             <div class="col-md-4">{{ nextDay3.mediumTemp }}°C</div>
           </div>
