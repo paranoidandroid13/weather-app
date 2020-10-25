@@ -20,7 +20,7 @@
                 <img v-bind:src="nextDay1.actual_icon" height="50" width="50" alt="">
                 <h6 id="descr" class="ml-2 mt-3">{{ nextDay1.description }}</h6>
               </div>
-              <div class="col-md-4">{{ nextDay1.mediumTemp }}°C</div>
+              <div class="col-md-4 text-primary">{{ nextDay1.mediumTemp }}°C</div>
 
             </div>
 
@@ -32,7 +32,7 @@
                 <img v-bind:src="nextDay2.actual_icon" height="50" width="50" alt="">
                 <h6 id="descr" class="ml-2 mt-3">{{ nextDay2.description }}</h6>
               </div>
-              <div class="col-md-4">{{ nextDay2.mediumTemp }}°C</div>
+              <div class="col-md-4 text-primary">{{ nextDay2.mediumTemp }}°C</div>
             </div>
 
             <div class="w-100"></div>
@@ -43,7 +43,7 @@
                 <img v-bind:src="nextDay3.actual_icon" height="50" width="50" alt="">
                 <h6 id="descr" class="ml-2 mt-3">{{ nextDay3.description }}</h6>
               </div>
-              <div class="col-md-4">{{ nextDay3.mediumTemp }}°C</div>
+              <div class="col-md-4 text-primary">{{ nextDay3.mediumTemp }}°C</div>
             </div>
           </div>
         </b-col>
