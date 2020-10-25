@@ -102,19 +102,19 @@
         this.currentTemp.actual_icon = `http://openweathermap.org/img/wn/${this.currentTemp.icon}@2x.png`
         this.currentTemp.date = json.daily[0].dt
 
-        this.nextDay1.mediumTemp = Math.round((json.daily[1].temp.min + json.daily[1].temp.max) / 2)
+        this.nextDay1.mediumTemp = Math.round(json.daily[1].temp.day)
         this.nextDay1.description = json.daily[1].weather[0].description
         this.nextDay1.date = json.daily[1].dt
         this.nextDay1.icon = json.daily[1].weather[0].icon
         this.nextDay1.actual_icon = `http://openweathermap.org/img/wn/${this.nextDay1.icon}@2x.png`
 
-        this.nextDay2.mediumTemp = Math.round((json.daily[2].temp.min + json.daily[2].temp.max) / 2)
+        this.nextDay2.mediumTemp = Math.round(json.daily[2].temp.day)
         this.nextDay2.description = json.daily[2].weather[0].description
         this.nextDay2.date = json.daily[2].dt
         this.nextDay2.icon = json.daily[2].weather[0].icon
         this.nextDay2.actual_icon = `http://openweathermap.org/img/wn/${this.nextDay2.icon}@2x.png`
 
-        this.nextDay3.mediumTemp = Math.round((json.daily[3].temp.min + json.daily[3].temp.max) / 2)
+        this.nextDay3.mediumTemp = Math.round(json.daily[3].temp.day)
         this.nextDay3.description = json.daily[3].weather[0].description
         this.nextDay3.date = json.daily[3].dt
         this.nextDay3.icon = json.daily[3].weather[0].icon
