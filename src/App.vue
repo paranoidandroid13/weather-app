@@ -11,6 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  // background-color: thistle;
+  // background-color:whitesmoke;
+  background-color: #c1c0d1;
+
+  min-height: 100vh;
   }
 
 #nav {

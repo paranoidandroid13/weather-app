@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container class="h-100 ">
-      <b-row class="h-100 justify-content-center align-items-center">
+      <b-row class="justify-content-center">
         <b-col class="col-md-6 p-0">
           <div class="row no-gutters overflow-hidden flex-md-row mb-4 position-relative">
             <div class="col-md-12 p-4 d-flex flex-column align-items-center position-static">
