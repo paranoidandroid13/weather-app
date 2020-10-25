@@ -8,10 +8,9 @@
             <strong class="h3 d-inline-block mb-2 text-primary">{{ currentTemp.temp }}°C</strong>
             <h6>{{ currentTemp.description}}</h6>
             <img v-bind:src="currentTemp.actual_icon" height="100" width="100" alt="">
-            <h4 class="mb-0 city">Rostov-on-Don</h4 >
-            <h3>{{ convertToDay(daily.date) }}</h3>
+            <h4 class="mb-4 city">Rostov-on-Don</h4 >
+            <h6>{{ convertToDay(currentTemp.date) }}</h6>
           </div>
-
           <div class="w-100"></div>
           <div class="col-md-12 border solid red d-flex align-items-center p-4 flex-md-row">
             <div class="col-md-4">date</div>
@@ -24,13 +23,13 @@
           <div class="w-100"></div>
           <div class="col-md-12 border solid red d-flex align-items-center p-4">
             <div class="col-md-4">date</div>
-            <div class="col-md-4">desct</div>
+            <div class="col-md-4">desc</div>
             <div class="col-md-4">temp</div>
           </div>
           <div class="w-100"></div>
           <div class="col-md-12 border solid red d-flex align-items-center p-4">
              <div class="col-md-4">date</div>
-            <div class="col-md-4">desct</div>
+            <div class="col-md-4">desc</div>
             <div class="col-md-4">temp</div>
           </div>
 
@@ -52,11 +51,6 @@ export default {
 </script>
 -->
 
-// var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-// var d = new Date(data.list[0].dt * 1000);
-// var dayName = days[d.getDay()];
-// console.log(dayName)
-
 <script>
   export default {
     data() {
@@ -69,16 +63,13 @@ export default {
           description: '',
           icon: '',
           actual_icon: '',
-        },
-        daily: {
-          date: ''
-        },
+          date: '',
+        }
       }
     },
     mounted() {
-      console.log('weather! fuckkkkk')
       this.fetchData()
-      this.fetchData4Days()
+      // this.fetchData4Days()
     },
     methods: {
       fetchData() {
@@ -89,39 +80,22 @@ export default {
         this.currentTemp.description = json.weather[0].description
         this.currentTemp.icon = json.weather[0].icon
         this.currentTemp.actual_icon = `http://openweathermap.org/img/wn/${this.currentTemp.icon}@2x.png`
-        this.daiy.date = json.list[0].dt
+        this.currentTemp.date = json.dt
+        console.log(this.currentTemp.date)
       })
       },
       convertToDay(time) {
-        const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-        const newDate = new Date(time * 1000)
-        return days[newDate.getDay()]
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        const numDay = new Date(time * 1000).getDay()
+        return days[numDay]
       },
       fetchData4Days() {
         fetch('https://api.openweathermap.org/data/2.5/forecast?q=Rostov-on-Don,ru&units=metric&appid=891023a344fa8b274da8b0007a2e343d')
         .then((res) => res.json())
         .then(json => {
           let arr = json.list
-          // for (let i=0; i<28; i++) {
-          //   const arrTemps = arr[i].main.temp
-          //   console.log(arrTemps)
-          // }
-
-          // const arrTemps = arr.map((item) => [ ...item.main.temp ])
-          // console.log(arrTemps)
           const tempsArr = arr.map((item) => Object.values(item)[1].temp)
-          // tempsFiltered = tempsArr.filter(item, index) => index >= 4 && index <= 28 ))
           console.log(tempsArr)
-          const filteredTemps = tempsArr.slice(4, 27)
-          console.log(filteredTemps)
-          // const we25 = filteredTemps.slice(0, 7)
-          // console.log(we25)
-          // // const we26 = filteredTemps.slice(7, 15)
-          // // const we27 = filteredTemps.slice(15, 23)
-          // const medium25 = we25.reduce((acc, cur) => acc + cur, 0)
-          // const medium25_res = medium25 / we25.length
-          // console.log(medium25_res)
-          // СРЕДНЯЯ ПОГОДА ЗА ТЕКУЩИЙ ДЕНЬ
         })
       }
     }
