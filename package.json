@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "sh deploy.sh"
+    "deploy": "sh deploy.sh",
+    "deployCross": "yarn build && cd dist && git add -A && git commit -m 'deploy' && git push git@github.com:paranoidandroid13/weather-app.git master:gh-pages"
   },
   "dependencies": {
     "bootstrap-vue": "^2.17.3",
